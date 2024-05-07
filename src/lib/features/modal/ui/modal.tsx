@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ModalWrapper } from './ModalWrapper';
 import { IoCloseOutline } from 'react-icons/io5';
+import classNames from 'classnames';
 
 type Props = {
   showModalState: boolean;
@@ -24,11 +25,12 @@ export const Modal: React.FC<Props> = ({
   }, []);
 
   return(
-    <ModalWrapper>
+    <ModalWrapper showContent={showContent}>
       <div
-        className={`max-w-[600px] w-full bg-gray-500 rounded-[30px] max-h-[400px] h-full relative z-[2] 
-        transition-all ease-in delay-[0.1s] opacity-[0.5] translate-y-[-100vh]
-        ${showContent ? 'translate-y-[0] opacity-[1]' : ''}`}
+        className={classNames('max-w-[600px] w-full bg-gray-500 rounded-[30px] max-h-[400px] h-full relative z-[2] ',
+          'transition-all ease-in delay-[0.1s] opacity-[0] translate-y-[-50%]',
+          showContent ? 'opacity-[100%] translate-y-[0%]' : ''
+        )}
       >
         <div className=" p-[40px] flex justify-center items-center h-full">
           <IoCloseOutline
@@ -40,7 +42,6 @@ export const Modal: React.FC<Props> = ({
           </p>
         </div>
       </div>
-
     </ModalWrapper>
   );
 };

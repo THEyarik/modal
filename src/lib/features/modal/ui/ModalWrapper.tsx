@@ -4,21 +4,23 @@ import classNames from 'classnames';
 
 type Props = PropsWithChildren &  {
   className?: string;
+  showContent: boolean;
 }
 
 export const ModalWrapper: React.FC<Props> = ({
   className = '',
-  children
+  children,
+  showContent
 }) => {
 
   return(
     <div
       className={classNames(
         className,
-        'fixed w-[100vw] h-[100vh] flex justify-center items-center bg-[#000000] bg-opacity-[40%] ',
-        'transition-all ease-in delay-[0.3s] opacity-[0.5],translate-y-[-100vh]'
+        'fixed w-[100vw] h-[100vh] flex justify-center items-center bg-[#000000] bg-opacity-0 ',
+        'transition-all ease delay-[0.1s]',
+        showContent ? 'bg-opacity-30' : ''
       )}
-
     >
       {children}
     </div>
