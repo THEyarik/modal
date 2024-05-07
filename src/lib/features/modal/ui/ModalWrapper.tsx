@@ -18,7 +18,7 @@ export const ModalWrapper: React.FC<Props> = ({
       className={classNames(
         className,
         'fixed w-[100vw] h-[100vh] flex justify-center items-center bg-[#000000] bg-opacity-0 ',
-        'transition-all ease delay-[0.1s]',
+        'transition-all ease duration-[0.1s]',
         showContent ? 'bg-opacity-30' : ''
       )}
     >

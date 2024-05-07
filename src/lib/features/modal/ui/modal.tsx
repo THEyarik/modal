@@ -17,7 +17,7 @@ export const Modal: React.FC<Props> = ({
     setShowContent(false);
     setTimeout(() => {
       setShowModalState(!showModalState);
-    }, 200);
+    }, 100);
   };
 
   useEffect(() => {
@@ -27,8 +27,9 @@ export const Modal: React.FC<Props> = ({
   return(
     <ModalWrapper showContent={showContent}>
       <div
+
         className={classNames('max-w-[600px] w-full bg-gray-500 rounded-[30px] max-h-[400px] h-full relative z-[2] ',
-          'transition-all ease-in delay-[0.1s] opacity-[0] translate-y-[-50%]',
+          'transition-all duration-300 ease-[cubic-bezier(0,1,0.35,2)]  opacity-[0] translate-y-[-50%]',
           showContent ? 'opacity-[100%] translate-y-[0%]' : ''
         )}
       >
